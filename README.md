@@ -35,7 +35,10 @@ CMake를 활용하는 경우, 프로젝트의 설정사항들을 CMakeLists.txt 
 소스 코드를 추가하는 이전 상황을 다시 봅시다. CMake를 활용하는 경우, 추가 소스 코드를 CMakeLists.txt에 명시하면 더 추가적인 작업은 필요 없습니다. CMake가 최신화된 소스코드를 확인해서 각 IDE에 맞는 프로젝트를 생성해 줄 테니까요.
 
 - 한 가지 강조할 점은, IDE 환경에서 소스 파일을 추가하는 작업과 CMakeLists.txt에 추가 소스코드를 명시하는 작업 두 가지는 분명히 다른 작업이라는 것입니다. CMake는 CMakeLists.txt에 명시된 파일만 확인할 수 있으니 IDE에서 파일을 추가한 뒤에 CMakeLists.txt에 명시하지 않으면 CMake는 변경사항을 인식하지 못한다는 겁니다.
-![](https://cgold.readthedocs.io/en/latest/_images/bad-workflow.png)
-![](https://cgold.readthedocs.io/en/latest/_images/good-workflow.png)
+
+<img src="https://cgold.readthedocs.io/en/latest/_images/bad-workflow.png" width="40%" height="40%">
+
+> 아래는 올바른 사용 예
+<img src="https://cgold.readthedocs.io/en/latest/_images/good-workflow.png" width="40%" height="40%">
 
 - 추가적으로 IDE 에서 제공하는 설정들과 CMake에서 작성할 수 있는 설정사항들은 항상 호환되지는 않는다는 점도 기억합시다.
