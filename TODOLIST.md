@@ -4,4 +4,4 @@
 
 - CMake 캐시
 - CMake with Ninja??
-- 
+- CMake 가 할 수 없는 일 정리(cgold)
