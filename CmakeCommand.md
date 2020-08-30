@@ -19,6 +19,17 @@ file(GLOB_RECURSE <variable> [FOLLOW_SYMLINKS]
 
 # 프로젝트 컴파일러 경고 다루기
 
+- MSVC 환경에서 특정 경고(C26495, C6001)를 사용하지 않는 명령 
+
+```console
+if(MSVC)
+target_compile_options(${target} PUBLIC 
+    /wd6001
+    /wd26495
+)
+endif()
+```
+
 #### Reference
 - [Stackoverflow : how-to-disable-specific-warning-inherited-from-parent-in-visual-studio](https://stackoverflow.com/questions/41205725/how-to-disable-specific-warning-inherited-from-parent-in-visual-studio)
 - [Microsoft : compiler warning option](https://docs.microsoft.com/en-us/previous-versions/thxezb7y(v=vs.140)?redirectedfrom=MSDN)
