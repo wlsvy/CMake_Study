@@ -16,3 +16,9 @@ file(GLOB_RECURSE <variable> [FOLLOW_SYMLINKS]
 
 #### Reference
 - [Cmake : File](https://cmake.org/cmake/help/latest/command/file.html#filesystem)
+
+# 프로젝트 컴파일러 경고 다루기
+
+#### Reference
+- [Stackoverflow : how-to-disable-specific-warning-inherited-from-parent-in-visual-studio](https://stackoverflow.com/questions/41205725/how-to-disable-specific-warning-inherited-from-parent-in-visual-studio)
+- [Microsoft : compiler warning option](https://docs.microsoft.com/en-us/previous-versions/thxezb7y(v=vs.140)?redirectedfrom=MSDN)
