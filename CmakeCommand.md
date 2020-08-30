@@ -19,7 +19,8 @@ file(GLOB_RECURSE <variable> [FOLLOW_SYMLINKS]
 
 # 프로젝트 컴파일러 경고 다루기
 
-- MSVC 환경에서 특정 경고(C26495, C6001)를 사용하지 않는 명령 
+- 아래는 MSVC 환경에서 특정 경고(C26495, C6001)를 사용하지 않도록 설정하는 예시입니다.
+  - 변수 `target` 은 현재 프로젝트 이름을 저장합니다.
 
 ```console
 if(MSVC)
@@ -33,3 +34,25 @@ endif()
 #### Reference
 - [Stackoverflow : how-to-disable-specific-warning-inherited-from-parent-in-visual-studio](https://stackoverflow.com/questions/41205725/how-to-disable-specific-warning-inherited-from-parent-in-visual-studio)
 - [Microsoft : compiler warning option](https://docs.microsoft.com/en-us/previous-versions/thxezb7y(v=vs.140)?redirectedfrom=MSDN)
+
+# Copy File
+
+- `file` , `configure_file`, `add_custom_command` 명령어를 활용해서 cmake 빌드 시 특정 디렉토리의 파일을 복사할 수 있습니다.
+  - `file` 명령어를 사용하는 경우, cmake의 configuration 단계에서만 파일을 복사합니다. 다른 두 가지 명령어를 활용한다면 기존 파일이 수정되었을 경우, cmake가 이를 추적하여 복사를 다시 수행해주는 장점이 있으니 `file` 보다는 `configure_file`, `add_custom_command`를 활용하는 것이 권장되고 있습니다.
+  
+ ```
+ # Copy DLL
+configure_file(
+    ${PRECOMPILED_LIBRARY_DIRECTORY}/x64/Debug/assimp-vc140-mt.dll 
+    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Debug/assimp-vc140-mt.dll 
+COPYONLY)
+configure_file(
+    ${PRECOMPILED_LIBRARY_DIRECTORY}/x64/Release/assimp-vc140-mt.dll 
+    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/assimp-vc140-mt.dll 
+COPYONLY)
+ ```
+
+#### Reference
+- [stackoverflow : copy-file-from-source-directory-to-binary-directory-using-cmake](https://stackoverflow.com/questions/34799916/copy-file-from-source-directory-to-binary-directory-using-cmake/42397802)
+- [cmake : add_custom_command](https://cmake.org/cmake/help/v2.8.10/cmake.html#command:add_custom_command)
+- [cmake : configure_file](https://cmake.org/cmake/help/latest/command/configure_file.html)
